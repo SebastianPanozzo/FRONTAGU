@@ -1,0 +1,103 @@
+:root {
+    --burgundy: #650015;
+    --dark-blue: #15325c;
+    --taupe: #cabba4;
+    --white: #eaf5f5;
+    --glacier: #D0E4F7;
+}
+
+/* Título principal con degradado Burgundy -> Dark Blue */
+.title-gradient {
+    background: linear-gradient(90deg, var(--burgundy), var(--dark-blue));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    font-size: 5em;
+    font-weight: 800;
+    text-align: center;
+}
+
+/* Ajustes responsive para títulos */
+@media (max-width: 768px) {
+    .title-gradient {
+        font-size: 3em;
+    }
+}
+
+@media (max-width: 480px) {
+    .title-gradient {
+        font-size: 2em;
+    }
+}
+
+/* Fondo general de la sección */
+.about-section {
+    background-color: var(--taupe);
+    padding: 1.5rem 0.75rem;
+}
+
+/* Títulos en Burgundy */
+.about-title {
+    color: var(--burgundy);
+}
+
+/* Texto en Burgundy */
+.about-text {
+    color: var(--burgundy);
+    margin-bottom: 0.5rem;
+}
+
+/* Botones con gradiente Burgundy -> Dark Blue */
+.btn-gradient {
+    background: linear-gradient(90deg, var(--burgundy), var(--dark-blue));
+    border: none;
+    transition: all 0.3s ease;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+}
+
+.btn-gradient:hover {
+    opacity: 0.9;
+}
+
+/* Ajustes de botones en móvil */
+@media (max-width: 768px) {
+    .btn-gradient {
+        width: 100%;
+        font-size: 1rem;
+        padding: 0.7rem 1rem;
+    }
+}
+
+/* Ajuste del contenedor de botones */
+.btn-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Fondo adaptable */
+.home-section {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+/* En pantallas móviles */
+@media (max-width: 1024px) {
+    .home-section {
+        background-attachment: scroll;
+        background-size: cover;
+    }
+}
+
+@media (max-width: 768px) {
+    .btn-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}

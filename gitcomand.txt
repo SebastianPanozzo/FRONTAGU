@@ -1,0 +1,8 @@
+//Al iniciar
+git fetch origin dev
+git pull origin dev
+
+//Terminan de Codear
+git add .
+git commit -m "fecha - hora - nombre del commit"
+git push origin dev
