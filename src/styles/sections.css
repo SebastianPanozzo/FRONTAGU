@@ -1,0 +1,335 @@
+/**
+ * Estilos específicos para secciones de Landing
+ * Ferreyra & Panozzo - Odontología General
+ */
+
+/* ==================== SECCIÓN HOME ==================== */
+.home-section {
+  min-height: 100vh;
+  background-color: var(--glacier);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10% 5%;
+  position: relative;
+}
+
+.home-logo-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5%;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.home-logo-image {
+  max-width: 80%;
+  height: auto;
+  flex: 1 1 auto;
+  animation: fadeIn 1s ease-in;
+}
+
+@media (max-width: 768px) {
+  .home-section {
+    padding: 15% 10%;
+  }
+
+  .home-logo-container {
+    flex-direction: column;
+    gap: 10%;
+  }
+
+  .home-logo-image {
+    max-width: 90%;
+  }
+}
+
+/* ==================== SECCIÓN ABOUT ==================== */
+.about-section {
+  background-color: var(--taupe);
+  padding: var(--spacing-3xl) var(--spacing-md);
+  min-height: var(--section-min-height);
+}
+
+.about-title {
+  color: var(--burgundy);
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-extrabold);
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+}
+
+.about-text {
+  color: var(--burgundy);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-md);
+}
+
+.about-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-lg);
+  object-fit: cover;
+}
+
+.about-feature {
+  margin-bottom: var(--spacing-lg);
+}
+
+.about-feature-icon {
+  color: var(--burgundy);
+  font-size: 1.5rem;
+  margin-right: var(--spacing-sm);
+}
+
+.about-feature-title {
+  color: var(--burgundy);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--spacing-sm);
+}
+
+.about-feature-description {
+  color: var(--burgundy);
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .about-title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .about-section {
+    padding: var(--spacing-2xl) var(--spacing-md);
+  }
+}
+
+/* ==================== SECCIÓN SERVICES ==================== */
+.services-section {
+  min-height: 100vh;
+  background-image: url('/img/Services.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  padding: var(--spacing-3xl) var(--spacing-md);
+}
+
+.services-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.services-content {
+  position: relative;
+  z-index: 2;
+}
+
+.services-title {
+  color: var(--burgundy);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-extrabold);
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.service-card-custom {
+  background-color: var(--dark-blue);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  height: 450px;
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
+  box-shadow: var(--shadow-xl);
+  transition: all var(--transition-base) var(--transition-timing);
+}
+
+.service-card-custom:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.service-card-image {
+  height: 300px;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--dark-blue) 0%, var(--burgundy) 100%);
+}
+
+.service-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.service-card-content {
+  padding: var(--spacing-lg);
+  color: var(--glacier);
+}
+
+.service-card-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-md);
+  color: var(--glacier);
+}
+
+.service-card-button {
+  width: 100%;
+  background-color: var(--burgundy);
+  color: var(--glacier);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-lg);
+  border: none;
+  font-weight: var(--font-weight-semibold);
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.service-card-button:hover {
+  background-color: #7a001a;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 1024px) {
+  .services-section {
+    background-attachment: scroll;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-section {
+    padding: var(--spacing-2xl) var(--spacing-md);
+  }
+
+  .service-card-custom {
+    max-width: 100%;
+  }
+}
+
+/* ==================== SECCIÓN LOCATION ==================== */
+.location-section {
+  background-color: var(--white);
+  padding: var(--spacing-3xl) var(--spacing-md);
+  min-height: var(--section-min-height);
+}
+
+.location-title {
+  color: var(--burgundy);
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-extrabold);
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.location-info-item {
+  margin-bottom: var(--spacing-lg);
+}
+
+.location-info-title {
+  color: var(--burgundy);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--spacing-sm);
+}
+
+.location-info-title i {
+  margin-right: var(--spacing-sm);
+}
+
+.location-info-text {
+  color: var(--burgundy);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--spacing-xs);
+}
+
+.location-map-container {
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  height: 400px;
+}
+
+.location-map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (max-width: 768px) {
+  .location-title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .location-section {
+    padding: var(--spacing-2xl) var(--spacing-md);
+  }
+
+  .location-map-container {
+    height: 300px;
+  }
+}
+
+/* ==================== GRADIENTES ==================== */
+.title-gradient {
+  background: linear-gradient(90deg, var(--burgundy), var(--dark-blue));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-extrabold);
+  text-align: center;
+}
+
+.btn-gradient {
+  background: linear-gradient(90deg, var(--burgundy), var(--dark-blue));
+  border: none;
+  color: var(--glacier);
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base) var(--transition-timing);
+  cursor: pointer;
+}
+
+.btn-gradient:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 768px) {
+  .title-gradient {
+    font-size: var(--font-size-3xl);
+  }
+
+  .btn-gradient {
+    width: 100%;
+    font-size: var(--font-size-base);
+    padding: var(--spacing-sm) var(--spacing-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .title-gradient {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+/* ==================== TRANSICIONES ENTRE SECCIONES ==================== */
+section {
+  scroll-margin-top: 70px; /* Altura del navbar */
+}
