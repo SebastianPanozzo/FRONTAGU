@@ -127,7 +127,7 @@ const Header = ({ scrollToSection }) => {
               </ul>
 
               {/* Auth buttons */}
-              <div className="d-flex flex-column flex-lg-row gap-2 mt-3 mt-lg-0">
+              <div className="d-flex flex-row gap-2 mt-3 mt-lg-0">
                 {currentUser ? (
                   <>
                     {/* Workspace button solo para profesionales */}

@@ -1,0 +1,378 @@
+/**
+ * Estilos específicos para el Workspace
+ * Ferreyra & Panozzo - Odontología General
+ */
+
+/* ==================== LAYOUT WORKSPACE ==================== */
+.workspace-container {
+  min-height: 100vh;
+  background-color: var(--glacier);
+  padding-top: calc(var(--navbar-height) + 1rem);
+}
+
+.workspace-content {
+  padding: var(--spacing-xl) var(--spacing-md);
+}
+
+/* ==================== STAT CARDS ==================== */
+.stat-card {
+  background-color: var(--dark-blue);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: all var(--transition-base) var(--transition-timing);
+  border: 2px solid var(--burgundy);
+  height: 100%;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+}
+
+.stat-card-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.stat-card-value {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-extrabold);
+  line-height: 1;
+  margin-bottom: var(--spacing-sm);
+}
+
+.stat-card-label {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-xs);
+}
+
+.stat-card-subtitle {
+  font-size: var(--font-size-sm);
+  opacity: 0.8;
+}
+
+/* ==================== QUICK ACTION CARDS ==================== */
+.quick-action-card {
+  background-color: var(--dark-blue);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: all var(--transition-base) var(--transition-timing);
+  border: 2px solid var(--burgundy);
+  height: 100%;
+  text-decoration: none;
+  display: block;
+}
+
+.quick-action-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--burgundy);
+}
+
+.quick-action-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.quick-action-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--glacier);
+  margin-bottom: var(--spacing-sm);
+}
+
+.quick-action-description {
+  font-size: var(--font-size-sm);
+  color: var(--glacier);
+  opacity: 0.85;
+}
+
+.quick-action-footer {
+  padding: var(--spacing-md);
+  background-color: rgba(101, 0, 21, 0.1);
+  border-top: 1px solid rgba(208, 228, 247, 0.1);
+  text-align: center;
+}
+
+/* ==================== WORKSPACE NAVBAR ==================== */
+.workspace-navbar {
+  background-color: var(--dark-blue);
+  border-bottom: 3px solid var(--burgundy);
+}
+
+.workspace-nav-link {
+  color: var(--glacier);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+  font-weight: var(--font-weight-medium);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.workspace-nav-link:hover {
+  background-color: rgba(231, 192, 192, 0.1);
+}
+
+.workspace-nav-link.active {
+  background-color: var(--burgundy);
+  font-weight: var(--font-weight-bold);
+}
+
+/* ==================== WORKSPACE TABLES ==================== */
+.workspace-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.workspace-table thead {
+  background-color: var(--dark-blue);
+  color: var(--glacier);
+}
+
+.workspace-table th,
+.workspace-table td {
+  padding: var(--spacing-md);
+  text-align: left;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.workspace-table tbody tr:hover {
+  background-color: rgba(208, 228, 247, 0.2);
+  cursor: pointer;
+}
+
+.workspace-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ==================== WORKSPACE FILTERS ==================== */
+.workspace-filters {
+  background-color: white;
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--spacing-lg);
+  border: 2px solid var(--dark-blue);
+}
+
+.filter-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.filter-group:last-child {
+  margin-bottom: 0;
+}
+
+.filter-label {
+  display: block;
+  font-weight: var(--font-weight-semibold);
+  color: var(--dark-blue);
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+}
+
+.filter-input {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 2px solid var(--burgundy);
+  border-radius: var(--radius-md);
+  background-color: white;
+  color: var(--burgundy);
+  font-size: var(--font-size-sm);
+  transition: all var(--transition-base);
+}
+
+.filter-input:focus {
+  outline: none;
+  border-color: var(--dark-blue);
+  box-shadow: 0 0 0 3px rgba(21, 50, 92, 0.1);
+}
+
+/* ==================== WORKSPACE EMPTY STATE ==================== */
+.workspace-empty-state {
+  text-align: center;
+  padding: var(--spacing-3xl);
+  color: var(--dark-blue);
+}
+
+.workspace-empty-icon {
+  font-size: 4rem;
+  color: var(--burgundy);
+  opacity: 0.5;
+  margin-bottom: var(--spacing-lg);
+}
+
+.workspace-empty-title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--dark-blue);
+  margin-bottom: var(--spacing-md);
+}
+
+.workspace-empty-description {
+  font-size: var(--font-size-base);
+  color: var(--burgundy);
+  opacity: 0.8;
+  margin-bottom: var(--spacing-lg);
+}
+
+/* ==================== WORKSPACE BADGES ==================== */
+.workspace-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.workspace-badge-primary {
+  background-color: var(--burgundy);
+  color: var(--glacier);
+}
+
+.workspace-badge-secondary {
+  background-color: var(--dark-blue);
+  color: var(--glacier);
+}
+
+.workspace-badge-success {
+  background-color: var(--success);
+  color: white;
+}
+
+.workspace-badge-warning {
+  background-color: var(--warning);
+  color: #000;
+}
+
+.workspace-badge-danger {
+  background-color: var(--danger);
+  color: white;
+}
+
+/* ==================== WORKSPACE ACTIONS ==================== */
+.workspace-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.workspace-action-btn {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  font-size: var(--font-size-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.workspace-action-btn-edit {
+  background-color: var(--dark-blue);
+  color: var(--glacier);
+}
+
+.workspace-action-btn-edit:hover {
+  background-color: #1a3d6f;
+}
+
+.workspace-action-btn-delete {
+  background-color: var(--danger);
+  color: white;
+}
+
+.workspace-action-btn-delete:hover {
+  background-color: #c82333;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .workspace-content {
+    padding: var(--spacing-lg) var(--spacing-sm);
+  }
+
+  .stat-card-value {
+    font-size: var(--font-size-3xl);
+  }
+
+  .quick-action-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .workspace-table {
+    font-size: var(--font-size-sm);
+  }
+
+  .workspace-table th,
+  .workspace-table td {
+    padding: var(--spacing-sm);
+  }
+
+  .workspace-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .workspace-action-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.workspace-animate-in {
+  animation: slideInUp var(--transition-base) var(--transition-timing);
+}
+
+.workspace-animate-in-delay-1 {
+  animation: slideInUp var(--transition-base) var(--transition-timing);
+  animation-delay: 0.1s;
+  animation-fill-mode: both;
+}
+
+.workspace-animate-in-delay-2 {
+  animation: slideInUp var(--transition-base) var(--transition-timing);
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
+}
+
+.workspace-animate-in-delay-3 {
+  animation: slideInUp var(--transition-base) var(--transition-timing);
+  animation-delay: 0.3s;
+  animation-fill-mode: both;
+}

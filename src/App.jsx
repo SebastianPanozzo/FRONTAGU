@@ -8,7 +8,7 @@ import { useAuthStore } from './store/useAuthStore';
 import Landing from './pages/Landing/Index';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
-// import Workspace from './pages/Workspace/Workspace'; // TODO: Descomentar cuando esté listo
+import WorkspaceIndex from './pages/Workspace/WorkspaceIndex';
 
 /**
  * Componente para rutas protegidas (requieren autenticación)
@@ -18,6 +18,23 @@ const ProtectedRoute = ({ children }) => {
   
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
+  }
+  
+  return children;
+};
+
+/**
+ * Componente para rutas que requieren rol profesional
+ */
+const ProfessionalRoute = ({ children }) => {
+  const { isAuthenticated, currentUser } = useAuthStore();
+  
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
+  
+  if (currentUser?.role !== 'professional') {
+    return <Navigate to="/" replace />;
   }
   
   return children;
@@ -34,17 +51,15 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         
-        {/* TODO: Rutas protegidas del Workspace */}
-        {/* 
+        {/* Rutas protegidas del Workspace (solo profesionales) */}
         <Route 
           path="/workspace/*" 
           element={
-            <ProtectedRoute>
-              <Workspace />
-            </ProtectedRoute>
+            <ProfessionalRoute>
+              <WorkspaceIndex />
+            </ProfessionalRoute>
           } 
         />
-        */}
         
         {/* Redirección por defecto */}
         <Route path="*" element={<Navigate to="/" replace />} />
