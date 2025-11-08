@@ -3,22 +3,31 @@
  */
 
 /**
- * Formatea una fecha al formato español (DD/MM/YYYY)
+ * Formatea una fecha al formato español (DD/MM/YYYY) sin hora
  * @param {Date|string} fecha - Fecha a formatear
  * @returns {string} Fecha formateada
  */
 export const formatearFecha = (fecha) => {
   if (!fecha) return '-';
   
-  const f = fecha instanceof Date ? fecha : new Date(fecha);
-  
-  if (isNaN(f.getTime())) return '-';
-  
-  return f.toLocaleDateString('es-AR', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  });
+  try {
+    const f = fecha instanceof Date ? fecha : new Date(fecha);
+    
+    if (isNaN(f.getTime())) return '-';
+    
+    // Usar toLocaleDateString con opciones específicas para evitar problemas de zona horaria
+    const options = {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      timeZone: 'America/Argentina/Buenos_Aires'
+    };
+    
+    return f.toLocaleDateString('es-AR', options);
+  } catch (error) {
+    console.error('Error al formatear fecha:', error);
+    return '-';
+  }
 };
 
 /**
@@ -29,17 +38,23 @@ export const formatearFecha = (fecha) => {
 export const formatearFechaHora = (fecha) => {
   if (!fecha) return '-';
   
-  const f = fecha instanceof Date ? fecha : new Date(fecha);
-  
-  if (isNaN(f.getTime())) return '-';
-  
-  return f.toLocaleString('es-AR', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-  });
+  try {
+    const f = fecha instanceof Date ? fecha : new Date(fecha);
+    
+    if (isNaN(f.getTime())) return '-';
+    
+    return f.toLocaleString('es-AR', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      timeZone: 'America/Argentina/Buenos_Aires'
+    });
+  } catch (error) {
+    console.error('Error al formatear fecha y hora:', error);
+    return '-';
+  }
 };
 
 /**
@@ -176,20 +191,25 @@ export const esFechaHoy = (fecha) => {
 export const fechaParaInput = (fecha) => {
   if (!fecha) return '';
   
-  // Si ya está en formato correcto
-  if (typeof fecha === 'string' && fecha.match(/^\d{4}-\d{2}-\d{2}$/)) {
-    return fecha;
+  try {
+    // Si ya está en formato correcto
+    if (typeof fecha === 'string' && fecha.match(/^\d{4}-\d{2}-\d{2}$/)) {
+      return fecha;
+    }
+    
+    const f = fecha instanceof Date ? fecha : new Date(fecha);
+    
+    if (isNaN(f.getTime())) return '';
+    
+    const year = f.getFullYear();
+    const month = String(f.getMonth() + 1).padStart(2, '0');
+    const day = String(f.getDate()).padStart(2, '0');
+    
+    return `${year}-${month}-${day}`;
+  } catch (error) {
+    console.error('Error al convertir fecha para input:', error);
+    return '';
   }
-  
-  const f = fecha instanceof Date ? fecha : new Date(fecha);
-  
-  if (isNaN(f.getTime())) return '';
-  
-  const year = f.getFullYear();
-  const month = String(f.getMonth() + 1).padStart(2, '0');
-  const day = String(f.getDate()).padStart(2, '0');
-  
-  return `${year}-${month}-${day}`;
 };
 
 /**

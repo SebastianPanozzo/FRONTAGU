@@ -1,0 +1,269 @@
+/**
+ * Estilos específicos para la gestión de usuarios
+ * Ferreyra & Panozzo - Odontología General
+ */
+
+/* ==================== TABLA DE USUARIOS ==================== */
+.table-responsive {
+  border-radius: 0 0 1.5rem 1.5rem;
+  overflow: hidden;
+}
+
+.table-hover tbody tr {
+  transition: all 0.2s ease;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(101, 0, 21, 0.08) !important;
+  transform: scale(1.001);
+}
+
+/* Checkbox personalizado */
+.form-check-input {
+  width: 1.2rem;
+  height: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.form-check-input:checked {
+  background-color: var(--burgundy);
+  border-color: var(--burgundy);
+}
+
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.25rem rgba(101, 0, 21, 0.25);
+  border-color: var(--burgundy);
+}
+
+/* ==================== BADGES ==================== */
+.badge {
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: all 0.2s ease;
+}
+
+.badge:hover {
+  transform: scale(1.05);
+}
+
+/* ==================== BOTONES DE ACCIÓN ==================== */
+.btn-sm {
+  transition: all 0.2s ease;
+}
+
+.btn-sm:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-sm:active {
+  transform: translateY(0);
+}
+
+/* ==================== AVATAR CIRCULAR ==================== */
+.rounded-circle {
+  transition: all 0.3s ease;
+}
+
+.rounded-circle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 0 3px rgba(101, 0, 21, 0.2);
+}
+
+/* ==================== MODAL OVERLAY ==================== */
+.modal-overlay {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content-custom {
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==================== STATS CARDS ==================== */
+.card-custom {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-custom::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(208, 228, 247, 0.1),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.card-custom:hover::before {
+  left: 100%;
+}
+
+/* ==================== SEARCH INPUT ==================== */
+.form-input-custom:focus {
+  box-shadow: 0 0 0 0.25rem rgba(101, 0, 21, 0.1);
+}
+
+/* ==================== SCROLL PERSONALIZADO PARA TABLA ==================== */
+.table-responsive::-webkit-scrollbar {
+  height: 8px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+  background: var(--glacier);
+  border-radius: 10px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+  background: var(--burgundy);
+  border-radius: 10px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+  background: var(--dark-blue);
+}
+
+/* ==================== LOADING STATES ==================== */
+.btn-custom:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-custom:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* ==================== RESPONSIVE ADJUSTMENTS ==================== */
+@media (max-width: 768px) {
+  .table-responsive {
+    font-size: 0.875rem;
+  }
+
+  .table th,
+  .table td {
+    padding: 0.5rem;
+  }
+
+  .rounded-circle {
+    width: 35px !important;
+    height: 35px !important;
+    font-size: 0.8rem !important;
+  }
+
+  .badge {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.6rem;
+  }
+
+  .modal-content-custom {
+    margin: 1rem;
+  }
+}
+
+/* ==================== ANIMACIONES DE CARGA ==================== */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading-row {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* ==================== ESTADOS DE SELECCIÓN ==================== */
+tr.selected {
+  background-color: rgba(101, 0, 21, 0.05) !important;
+  border-left: 3px solid var(--burgundy);
+}
+
+/* ==================== TOOLTIP PERSONALIZADO ==================== */
+[title] {
+  position: relative;
+}
+
+/* ==================== EMPTY STATE ==================== */
+.empty-state {
+  padding: 3rem;
+  text-align: center;
+}
+
+.empty-state i {
+  font-size: 4rem;
+  color: var(--glacier);
+  opacity: 0.5;
+  margin-bottom: 1rem;
+}
+
+/* ==================== ALERT PERSONALIZADO ==================== */
+.alert {
+  border-radius: 12px;
+  border-width: 2px;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ==================== CODE TAG ==================== */
+code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+/* ====================PRINT STYLES ==================== */
+@media print {
+  .btn-custom,
+  .form-check-input,
+  .modal-overlay {
+    display: none !important;
+  }
+
+  .table-responsive {
+    overflow: visible !important;
+  }
+
+  .card-custom {
+    break-inside: avoid;
+  }
+}
