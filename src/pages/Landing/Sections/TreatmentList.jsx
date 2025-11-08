@@ -4,7 +4,7 @@
  */
 
 import { useState, useEffect } from 'react';
-import useTreatments from '../../../hooks/useTreatments';
+import useTreatments from '../../../hooks/useTreatment';
 import Slider from '../../../components/common/Slider';
 import Card from '../../../components/common/Card';
 import Button from '../../../components/common/Button';

@@ -1,10 +1,11 @@
 /**
  * Componente Form
- * Formulario genérico reutilizable con validación
+ * Formulario genérico reutilizable con validación mejorada
  */
 
 import { useState } from 'react';
 import Button from './Button';
+import { VALIDATION } from '../../utils/constants';
 
 const Form = ({
   fields,
@@ -13,7 +14,8 @@ const Form = ({
   onCancel,
   cancelText = 'Cancelar',
   loading = false,
-  className = ''
+  className = '',
+  showCancelButton = true
 }) => {
   const [formData, setFormData] = useState(() => {
     const initialData = {};
@@ -45,37 +47,53 @@ const Form = ({
     const newErrors = {};
 
     fields.forEach(field => {
+      const value = formData[field.name];
+
       // Campo requerido
-      if (field.required && !formData[field.name]) {
+      if (field.required && !value) {
         newErrors[field.name] = `${field.label} es requerido`;
+        return;
       }
 
+      // No validar campos vacíos opcionales
+      if (!value) return;
+
       // Validación de email
-      if (field.type === 'email' && formData[field.name]) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(formData[field.name])) {
+      if (field.type === 'email') {
+        if (!VALIDATION.EMAIL_REGEX.test(value)) {
           newErrors[field.name] = 'Email inválido';
         }
       }
 
       // Validación de contraseña
-      if (field.type === 'password' && formData[field.name]) {
-        if (formData[field.name].length < 6) {
-          newErrors[field.name] = 'La contraseña debe tener al menos 6 caracteres';
+      if (field.type === 'password' && field.name === 'password') {
+        if (value.length < VALIDATION.MIN_PASSWORD_LENGTH) {
+          newErrors[field.name] = `La contraseña debe tener al menos ${VALIDATION.MIN_PASSWORD_LENGTH} caracteres`;
+        }
+      }
+
+      // Validación de confirmación de contraseña
+      if (field.name === 'confirmPassword') {
+        if (value !== formData.password) {
+          newErrors[field.name] = 'Las contraseñas no coinciden';
         }
       }
 
       // Validación de teléfono
-      if (field.type === 'tel' && formData[field.name]) {
-        const phoneRegex = /^[\+]?[0-9\s\-()]+$/;
-        if (!phoneRegex.test(formData[field.name])) {
+      if (field.type === 'tel') {
+        if (!VALIDATION.PHONE_REGEX.test(value)) {
           newErrors[field.name] = 'Número de teléfono inválido';
         }
       }
 
+      // Validación de longitud máxima de nombre
+      if ((field.name === 'name' || field.name === 'lastname') && value.length > VALIDATION.MAX_NAME_LENGTH) {
+        newErrors[field.name] = `${field.label} no puede exceder ${VALIDATION.MAX_NAME_LENGTH} caracteres`;
+      }
+
       // Validación personalizada
-      if (field.validate && formData[field.name]) {
-        const validationError = field.validate(formData[field.name], formData);
+      if (field.validate) {
+        const validationError = field.validate(value, formData);
         if (validationError) {
           newErrors[field.name] = validationError;
         }
@@ -175,7 +193,7 @@ const Form = ({
       ))}
 
       <div className="d-flex gap-2 mt-4">
-        {onCancel && (
+        {showCancelButton && onCancel && (
           <Button
             type="button"
             variant="outline"
@@ -190,6 +208,7 @@ const Form = ({
           variant="primary"
           loading={loading}
           disabled={loading}
+          fullWidth={!showCancelButton || !onCancel}
         >
           {submitText}
         </Button>

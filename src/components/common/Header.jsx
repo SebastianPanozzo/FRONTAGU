@@ -1,19 +1,16 @@
 /**
  * Componente Header
- * Header para Landing Page con scroll to sections
+ * Header para Landing Page con scroll to sections y navegación
  */
 
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
 import Button from './Button';
 
-const Header = ({
-  currentUser = null,
-  onLogin,
-  onRegister,
-  onLogout,
-  onWorkspace,
-  scrollToSection
-}) => {
+const Header = ({ scrollToSection }) => {
+  const navigate = useNavigate();
+  const { currentUser, logout } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleNavClick = (sectionId) => {
@@ -23,11 +20,28 @@ const Header = ({
     setIsMenuOpen(false);
   };
 
+  const handleLogin = () => {
+    navigate('/login');
+    setIsMenuOpen(false);
+  };
+
+  const handleRegister = () => {
+    navigate('/register');
+    setIsMenuOpen(false);
+  };
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      setIsMenuOpen(false);
+    } catch (error) {
+      console.error('Error al cerrar sesión:', error);
+    }
+  };
+
   const handleWorkspace = () => {
     if (currentUser && currentUser.role === 'professional') {
-      if (onWorkspace) {
-        onWorkspace();
-      }
+      navigate('/workspace/dashboard');
     } else {
       alert('Acceso denegado. Solo los profesionales pueden acceder al workspace.');
     }
@@ -130,10 +144,7 @@ const Header = ({
                     {/* Logout button */}
                     <Button
                       variant="primary"
-                      onClick={() => {
-                        onLogout();
-                        setIsMenuOpen(false);
-                      }}
+                      onClick={handleLogout}
                       icon="bi-box-arrow-right"
                     >
                       Cerrar Sesión
@@ -143,20 +154,14 @@ const Header = ({
                   <>
                     <Button
                       variant="secondary"
-                      onClick={() => {
-                        onLogin();
-                        setIsMenuOpen(false);
-                      }}
+                      onClick={handleLogin}
                       icon="bi-person"
                     >
                       Ingresar
                     </Button>
                     <Button
                       variant="primary"
-                      onClick={() => {
-                        onRegister();
-                        setIsMenuOpen(false);
-                      }}
+                      onClick={handleRegister}
                       icon="bi-person-plus"
                     >
                       Registrarse
@@ -170,7 +175,7 @@ const Header = ({
       </div>
 
       {/* Estilos para el menú mobile */}
-      <style jsx>{`
+      <style>{`
         @media (max-width: 991.98px) {
           .navbar-collapse {
             background-color: var(--dark-blue);
@@ -192,6 +197,11 @@ const Header = ({
           .navbar-link-custom {
             width: 100%;
             text-align: left;
+          }
+
+          /* Botones horizontales en mobile también */
+          .d-flex.flex-column.flex-lg-row {
+            flex-direction: row !important;
           }
         }
       `}</style>
