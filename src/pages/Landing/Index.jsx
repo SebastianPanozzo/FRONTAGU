@@ -4,12 +4,13 @@
  */
 
 import { useRef } from 'react';
-import Header from '../../components/common/Header';
-import Footer from '../../components/common/Footer';
-import Home from './Sections/Home';
-import About from './Sections/About';
-import TreatmentList from './Sections/TreatmentList';
-import Location from './Sections/Location';
+import Header from '@components/common/Header';
+import Footer from '@components/common/Footer';
+// ✅ Importaciones con alias @ (más limpias)
+import Home from '@pages/Landing/Sections/Home.jsx';
+import About from '@pages/Landing/Sections/About.jsx';
+import TreatmentList from '@pages/Landing/Sections/TreatmentList.jsx';
+import Location from '@pages/Landing/Sections/Location.jsx';
 
 const Landing = () => {
   // Referencias para scroll suave
