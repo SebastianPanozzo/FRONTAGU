@@ -6,7 +6,7 @@
 import { useRef } from 'react';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
-import Home from './Sections/home';
+import Home from './Sections/Home';
 import About from './Sections/About';
 import TreatmentList from './Sections/TreatmentList';
 import Location from './Sections/Location';
