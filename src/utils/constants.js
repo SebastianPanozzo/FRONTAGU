@@ -113,8 +113,8 @@ export const CLINIC_INFO = {
   NAME: 'Ferreyra & Panozzo - Odontología General',
   ADDRESS: '25 de Mayo 1484 - 1er piso consultorio 8',
   CITY: 'Corrientes Capital',
-  PHONE: '+54 379 4123456', // Reemplazar con teléfono real
-  EMAIL: 'contacto@ferreiraypanozzo.com.ar', // Reemplazar con email real
+  PHONE: '+3794-592217', // Reemplazar con teléfono real
+  EMAIL: '1993vere@gmail.com', // Reemplazar con email real
   COORDINATES: {
     lat: -27.4698, // Coordenadas de Corrientes Capital
     lng: -58.8344,
