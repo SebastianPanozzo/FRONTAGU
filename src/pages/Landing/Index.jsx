@@ -6,10 +6,10 @@
 import { useRef } from 'react';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
-import Home from 'src/pages/Landing/sections/Home';
-import About from './sections/About';
-import TreatmentList from './sections/TreatmentList';
-import Location from './sections/Location';
+import Home from './Sections/Home';
+import About from './Sections/About';
+import TreatmentList from './Sections/TreatmentList';
+import Location from './Sections/Location';
 
 const Landing = () => {
   // Referencias para scroll suave
