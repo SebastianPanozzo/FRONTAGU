@@ -9,8 +9,8 @@ import { useAuth } from '../../hooks/useAuth';
 import Navbar from '../../components/common/Navbar';
 import WorkspaceHome from './WorkspaceHome';
 import UsersManager from './UsersManager';
-// import AppointmentsManager from './AppointmentsManager'; // TODO: Descomentar cuando esté listo
-// import TreatmentsManager from './TreatmentsManager'; // TODO: Descomentar cuando esté listo
+import TreatmentsManager from './TreatmentsManager';
+import AppointmentsManager from './AppointmentsManager';
 
 const WorkspaceIndex = () => {
   const { currentUser, isProfessional } = useAuth();
@@ -43,9 +43,8 @@ const WorkspaceIndex = () => {
           <Route path="/" element={<Navigate to="/workspace/home" replace />} />
           <Route path="/home" element={<WorkspaceHome />} />
           <Route path="/users" element={<UsersManager />} />
-          {/* TODO: Descomentar cuando los managers estén listos */}
-          {/* <Route path="/appointments" element={<AppointmentsManager />} /> */}
-          {/* <Route path="/treatments" element={<TreatmentsManager />} /> */}
+          <Route path="/treatments" element={<TreatmentsManager />} />
+          <Route path="/appointments" element={<AppointmentsManager />} />
           <Route path="*" element={<Navigate to="/workspace/home" replace />} />
         </Routes>
       </main>

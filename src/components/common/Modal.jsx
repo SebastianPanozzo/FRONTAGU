@@ -14,7 +14,8 @@ const Modal = ({
   footer,
   size = 'md',
   closeOnOverlayClick = true,
-  showCloseButton = true
+  showCloseButton = true,
+  titleStyle = {}
 }) => {
   useEffect(() => {
     if (isOpen) {
@@ -62,7 +63,7 @@ const Modal = ({
         {/* Modal Header */}
         {title && (
           <div className="modal-header-custom">
-            <h5 className="modal-title-custom">{title}</h5>
+            <h5 className="modal-title-custom" style={titleStyle}>{title}</h5>
             {showCloseButton && (
               <button
                 type="button"

@@ -12,7 +12,7 @@ const UserFilters = ({ filter, setFilter, searchTerm, setSearchTerm }) => {
             <div className="row g-3">
               {/* Filtro por rol */}
               <div className="col-12 col-md-4">
-                <label className="form-label-custom">
+                <label className="form-label-custom" style={{ color: 'var(--glacier)' }}>
                   <i className="bi bi-funnel me-2"></i>
                   Filtrar por rol:
                 </label>
@@ -29,7 +29,7 @@ const UserFilters = ({ filter, setFilter, searchTerm, setSearchTerm }) => {
 
               {/* Búsqueda */}
               <div className="col-12 col-md-8">
-                <label className="form-label-custom">
+                <label className="form-label-custom" style={{ color: 'var(--glacier)' }}>
                   <i className="bi bi-search me-2"></i>
                   Buscar usuario:
                 </label>

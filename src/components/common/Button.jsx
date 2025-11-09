@@ -1,62 +1,51 @@
 /**
  * Componente Button
  * Botón reutilizable con variantes y estados
+ * Ferreyra & Panozzo - Odontología General
  */
 
 const Button = ({
   children,
-  variant = 'primary',
   type = 'button',
+  variant = 'primary',
   onClick,
   disabled = false,
   loading = false,
   icon,
-  iconPosition = 'left',
-  className = '',
-  style = {},
   fullWidth = false,
+  className = '',
   ...props
 }) => {
-  const baseClass = 'btn-custom';
-  const variantClass = variant === 'outline' 
-    ? 'btn-outline-custom' 
-    : variant === 'secondary'
-    ? 'btn-secondary-custom'
-    : 'btn-primary-custom';
-  
-  const widthClass = fullWidth ? 'w-100' : '';
-  
-  const buttonClasses = `${baseClass} ${variantClass} ${widthClass} ${className}`.trim();
+  const getVariantClass = () => {
+    switch (variant) {
+      case 'primary':
+        return 'btn-primary-custom';
+      case 'secondary':
+        return 'btn-secondary-custom';
+      case 'outline':
+        return 'btn-outline-custom';
+      default:
+        return 'btn-primary-custom';
+    }
+  };
 
   return (
     <button
       type={type}
-      className={buttonClasses}
       onClick={onClick}
       disabled={disabled || loading}
-      style={style}
+      className={`btn-custom ${getVariantClass()} ${fullWidth ? 'w-100' : ''} ${className}`}
       {...props}
     >
-      {loading ? (
-        <>
-          <span 
-            className="spinner-border spinner-border-sm me-2" 
-            role="status" 
-            aria-hidden="true"
-          ></span>
-          Cargando...
-        </>
-      ) : (
-        <>
-          {icon && iconPosition === 'left' && (
-            <i className={`bi ${icon} me-2`}></i>
-          )}
-          {children}
-          {icon && iconPosition === 'right' && (
-            <i className={`bi ${icon} ms-2`}></i>
-          )}
-        </>
+      {loading && (
+        <span 
+          className="spinner-border spinner-border-sm me-2" 
+          role="status" 
+          aria-hidden="true"
+        ></span>
       )}
+      {!loading && icon && <i className={`bi ${icon} me-2`}></i>}
+      {children}
     </button>
   );
 };

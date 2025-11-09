@@ -204,7 +204,7 @@ const WorkspaceHome = () => {
         <div className="col-12 col-lg-6">
           <div className="card-custom">
             <div className="card-header-custom">
-              <h5 className="mb-0">
+              <h5 className="mb-0" style={{ color: 'var(--glacier)' }}>
                 <i className="bi bi-info-circle me-2"></i>
                 Información del Sistema
               </h5>
@@ -224,7 +224,7 @@ const WorkspaceHome = () => {
         <div className="col-12 col-lg-6">
           <div className="card-custom">
             <div className="card-header-custom">
-              <h5 className="mb-0">
+              <h5 className="mb-0" style={{ color: 'var(--glacier)' }}>
                 <i className="bi bi-list-check me-2"></i>
                 Funcionalidades
               </h5>
@@ -235,7 +235,6 @@ const WorkspaceHome = () => {
                 <li className="mb-2">✓ Administración de tratamientos y precios</li>
                 <li className="mb-2">✓ Control de pacientes y usuarios</li>
                 <li className="mb-2">✓ Estadísticas y reportes en tiempo real</li>
-                <li className="mb-0">✓ Sistema de notificaciones</li>
               </ul>
             </div>
           </div>

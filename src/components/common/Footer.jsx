@@ -39,7 +39,7 @@ const Footer = () => {
                   aria-label="Enviar email al consultorio"
                   style={{ wordBreak: 'break-all' }}
                 >
-                  contacto@ferreiraypanozzo.com.ar
+                  1993vere@gmail.com
                 </a>
               </div>
             </div>
@@ -70,6 +70,31 @@ const Footer = () => {
                 <i className="bi bi-facebook" style={{ fontSize: '1.125rem' }}></i>
                 <span className="small fw-medium">Síguenos</span>
               </a>
+
+              <a 
+                href="https://www.instagram.com/fp.odontologia.ar?igsh=bGk2Mjg1dXdwa3oy" 
+                className="btn d-flex align-items-center gap-2 px-3 py-2 rounded"
+                style={{ 
+                  backgroundColor: 'var(--burgundy)', 
+                  color: 'var(--glacier)',
+                  textDecoration: 'none',
+                  transition: 'all 0.3s ease'
+                }}
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Visitar página de Instagram"
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 4px 12px rgba(101, 0, 21, 0.3)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                }}
+              >
+                <i className="bi bi-instagram" style={{ fontSize: '1.125rem' }}></i>
+                <span className="small fw-medium">Instagram</span>
+              </a>
             </div>
 
             {/* Separador */}
@@ -83,24 +108,6 @@ const Footer = () => {
               <i className="bi bi-c-circle me-1"></i>
               {currentYear} Ferreyra & Panozzo – Odontología General — Todos los derechos reservados
             </p>
-
-            {/* Links adicionales opcionales */}
-            <div className="mt-2">
-              <a 
-                href="#" 
-                className="footer-link small me-3"
-                onClick={(e) => e.preventDefault()}
-              >
-                Política de Privacidad
-              </a>
-              <a 
-                href="#" 
-                className="footer-link small"
-                onClick={(e) => e.preventDefault()}
-              >
-                Términos y Condiciones
-              </a>
-            </div>
           </div>
         </div>
       </div>

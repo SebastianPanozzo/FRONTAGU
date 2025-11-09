@@ -45,9 +45,9 @@ const QuickActionCard = ({ to, icon, title, description, color = 'burgundy' }) =
         <div className="card-footer-custom text-center py-3">
           <span 
             className="fw-semibold"
-            style={{ color: colorClass }}
+            style={{ color: 'var(--glacier)' }}
           >
-            Acceder <i className="bi bi-arrow-right ms-1"></i>
+            Acceder <i className="bi bi-arrow-right ms-1" style={{ color: 'var(--glacier)' }}></i>
           </span>
         </div>
       </div>

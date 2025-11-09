@@ -20,7 +20,7 @@ const TreatmentCard = ({ item: treatment, onViewDetails }) => {
     <Card
       image={treatment.image}
       imageAlt={treatment.name}
-      imageHeight="300px"
+      imageHeight="250px"
       footer={
         <Button
           variant="primary"
@@ -30,8 +30,30 @@ const TreatmentCard = ({ item: treatment, onViewDetails }) => {
           Ver detalles
         </Button>
       }
+      style={{
+        height: '400px',
+        width: '100%',
+        maxWidth: '350px',
+        margin: '0 auto',
+        display: 'flex',
+        flexDirection: 'column'
+      }}
+      bodyClassName="d-flex flex-column"
     >
-      <h3 className="service-card-title">{treatment.name}</h3>
+      <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <h3 
+          className="service-card-title text-center" 
+          style={{ 
+            color: 'var(--glacier)',
+            fontSize: '1.2rem',
+            fontWeight: 'bold',
+            margin: 0,
+            padding: '0 1rem'
+          }}
+        >
+          {treatment.name}
+        </h3>
+      </div>
     </Card>
   );
 };
@@ -47,49 +69,55 @@ const TreatmentDetailModal = ({ treatment, isOpen, onClose }) => {
       isOpen={isOpen}
       onClose={onClose}
       title={treatment.name}
+      titleStyle={{ color: 'var(--glacier)' }}
       footer={
-        <>
-          <Button variant="outline" onClick={onClose}>
-            Cerrar
-          </Button>
-          <Button
-            variant="primary"
-            icon="bi-calendar-check"
-            onClick={() => {
-              console.log('Solicitar cita para:', treatment.name);
-              // TODO: Implementar lógica de solicitud de cita
-              onClose();
-            }}
-          >
-            Solicitar Cita
-          </Button>
-        </>
+        <Button
+          variant="primary"
+          icon="bi-box-arrow-right"
+          onClick={() => {
+            onClose();
+          }}
+        >
+          Cerrar
+        </Button>
       }
     >
-      <div className="treatment-detail-content">
+      <div 
+        className="treatment-detail-content"
+        style={{
+          maxHeight: '60vh',
+          overflowY: 'auto',
+          overflowX: 'hidden',
+          padding: '0.5rem',
+          wordBreak: 'break-word',
+          overflowWrap: 'break-word',
+          hyphens: 'auto'
+        }}
+      >
         {/* Descripción */}
         {treatment.description && (
           <div className="mb-3">
-            <h5 className="fw-bold" style={{ color: 'var(--burgundy)' }}>
+            <h5 
+              className="fw-bold" 
+              style={{ 
+                color: 'var(--burgundy)',
+                wordBreak: 'break-word',
+                overflowWrap: 'break-word'
+              }}
+            >
               Descripción:
             </h5>
-            <p style={{ color: 'var(--dark-blue)' }}>{treatment.description}</p>
-          </div>
-        )}
-
-        {/* Duración */}
-        {treatment.duration && (
-          <div className="mb-3">
-            <strong style={{ color: 'var(--burgundy)' }}>Duración:</strong>{' '}
-            <span style={{ color: 'var(--dark-blue)' }}>{treatment.duration} minutos</span>
-          </div>
-        )}
-
-        {/* Precio */}
-        {treatment.price && (
-          <div className="mb-3">
-            <strong style={{ color: 'var(--burgundy)' }}>Precio:</strong>{' '}
-            <span style={{ color: 'var(--dark-blue)' }}>${treatment.price}</span>
+            <p 
+              style={{ 
+                color: 'var(--dark-blue)',
+                wordBreak: 'break-word',
+                overflowWrap: 'break-word',
+                whiteSpace: 'pre-wrap',
+                lineHeight: '1.6'
+              }}
+            >
+              {treatment.description}
+            </p>
           </div>
         )}
       </div>
@@ -180,7 +208,7 @@ const TreatmentList = () => {
               800: { slidesPerView: 2 },
               1200: { slidesPerView: 3 },
             }}
-            slideHeight="500px"
+            slideHeight="450px"
           />
         )}
       </div>

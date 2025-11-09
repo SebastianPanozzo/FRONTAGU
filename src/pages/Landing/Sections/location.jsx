@@ -44,7 +44,7 @@ const Location = () => {
               <p className="location-info-text">De lunes a viernes</p>
               <p className="location-info-text">Por la mañana y por la tarde</p>
               <p className="location-info-text">
-                Turnos al <strong>{PHONE}</strong>
+                Turnos al <strong>+3794-592217</strong>
               </p>
             </div>
 

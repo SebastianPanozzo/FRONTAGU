@@ -89,6 +89,10 @@ export const treatmentApi = {
       
       const IMGBB_API_KEY = import.meta.env.VITE_IMGBB_API_KEY;
       
+      if (!IMGBB_API_KEY) {
+        throw new Error('IMGBB_API_KEY no está configurada. Por favor, configura la variable de entorno VITE_IMGBB_API_KEY');
+      }
+      
       const response = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`, {
         method: 'POST',
         body: formData,
@@ -99,7 +103,7 @@ export const treatmentApi = {
       if (data.success) {
         return data.data.url;
       } else {
-        throw new Error('Error al subir imagen');
+        throw new Error(data.error?.message || 'Error al subir imagen');
       }
     } catch (error) {
       throw new Error('Error al subir imagen: ' + error.message);

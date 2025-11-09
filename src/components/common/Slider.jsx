@@ -80,7 +80,7 @@ const Slider = ({
       </Swiper>
 
       {/* Custom styles for Swiper navigation and pagination */}
-      <style jsx>{`
+      <style>{`
         .slider-container :global(.swiper-button-next),
         .slider-container :global(.swiper-button-prev) {
           color: var(--burgundy);

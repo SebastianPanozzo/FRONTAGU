@@ -40,10 +40,10 @@ export const APPOINTMENT_STATE_COLORS = {
 
 // Configuración de turnos
 export const APPOINTMENT_CONFIG = {
-  MIN_DURATION: 30, // minutos
+  MIN_DURATION: 15, // minutos
   DEFAULT_DURATION: 60, // minutos
-  WORKING_HOURS_START: '08:00',
-  WORKING_HOURS_END: '18:00',
+  WORKING_HOURS_START: '06:00',
+  WORKING_HOURS_END: '24:00',
 };
 
 // Rutas de navegación

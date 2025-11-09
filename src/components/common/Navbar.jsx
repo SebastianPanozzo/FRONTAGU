@@ -123,6 +123,7 @@ const Navbar = ({ isWorkspace = false }) => {
                     <button
                       className={`navbar-link-custom btn border-0 ${isActive('/workspace/appointments') ? 'active' : ''}`}
                       onClick={() => navigateTo('/workspace/appointments')}
+                      style={{ color: 'var(--glacier)' }}
                     >
                       <i className="bi bi-calendar-check me-1"></i>
                       Turnos
@@ -132,6 +133,7 @@ const Navbar = ({ isWorkspace = false }) => {
                     <button
                       className={`navbar-link-custom btn border-0 ${isActive('/workspace/treatments') ? 'active' : ''}`}
                       onClick={() => navigateTo('/workspace/treatments')}
+                      style={{ color: 'var(--glacier)' }}
                     >
                       <i className="bi bi-heart-pulse me-1"></i>
                       Tratamientos
@@ -141,6 +143,7 @@ const Navbar = ({ isWorkspace = false }) => {
                     <button
                       className={`navbar-link-custom btn border-0 ${isActive('/workspace/users') ? 'active' : ''}`}
                       onClick={() => navigateTo('/workspace/users')}
+                      style={{ color: 'var(--glacier)' }}
                     >
                       <i className="bi bi-people me-1"></i>
                       Usuarios

@@ -104,6 +104,7 @@ const Header = ({ scrollToSection }) => {
                   <button
                     className="navbar-link-custom btn border-0"
                     onClick={() => handleNavClick('about')}
+                    style={{ color: 'var(--glacier)' }}
                   >
                     Sobre Nosotros
                   </button>
@@ -111,15 +112,17 @@ const Header = ({ scrollToSection }) => {
                 <li className="nav-item">
                   <button
                     className="navbar-link-custom btn border-0"
-                    onClick={() => handleNavClick('services')}
+                    onClick={() => handleNavClick('treatments')}
+                    style={{ color: 'var(--glacier)' }}
                   >
-                    Servicios
+                    Tratamientos
                   </button>
                 </li>
                 <li className="nav-item">
                   <button
                     className="navbar-link-custom btn border-0"
                     onClick={() => handleNavClick('location')}
+                    style={{ color: 'var(--glacier)' }}
                   >
                     Ubicación
                   </button>
