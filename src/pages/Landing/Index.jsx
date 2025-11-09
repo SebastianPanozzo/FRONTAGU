@@ -6,11 +6,11 @@
 import { useRef } from 'react';
 import Header from '@components/common/Header';
 import Footer from '@components/common/Footer';
-// ✅ Importaciones con alias @ (más limpias)
-import Home from '@pages/Landing/Sections/Home.jsx';
-import About from '@pages/Landing/Sections/About.jsx';
-import TreatmentList from '@pages/Landing/Sections/TreatmentList.jsx';
-import Location from '@pages/Landing/Sections/Location.jsx';
+// ✅ Cambia estas importaciones relativas por absolutas
+import Home from '../../pages/Landing/Sections/home.jsx';
+import About from '../../pages/Landing/Sections/About.jsx';
+import TreatmentList from '../../pages/Landing/Sections/TreatmentList.jsx';
+import Location from '../../pages/Landing/Sections/location.jsx';
 
 const Landing = () => {
   // Referencias para scroll suave
