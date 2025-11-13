@@ -11,6 +11,7 @@ import ErrorMessage from '../../components/common/ErrorMessage';
 import TreatmentCard from '../../components/treatments/TreatmentCard';
 import TreatmentFormModal from '../../components/treatments/TreatmentFormModal';
 import TreatmentFilters from '../../components/treatments/TreatmentFilters';
+import ConfirmDeleteTreatment from '../../components/treatments/ConfirmDeleteTreatment';
 
 const TreatmentsManager = () => {
   const {
@@ -32,6 +33,8 @@ const TreatmentsManager = () => {
   const [filteredTreatments, setFilteredTreatments] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [successMessage, setSuccessMessage] = useState(null);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [treatmentToDelete, setTreatmentToDelete] = useState(null);
 
   useEffect(() => {
     loadData();
@@ -71,18 +74,30 @@ const TreatmentsManager = () => {
     setShowModal(true);
   };
 
-  const handleDeleteTreatment = async (treatment) => {
-    if (!window.confirm(`¿Está seguro de eliminar el tratamiento "${treatment.name}"?`)) {
-      return;
-    }
+  const handleDeleteTreatment = (treatment) => {
+    setTreatmentToDelete(treatment);
+    setShowDeleteModal(true);
+  };
+
+  const confirmDeleteTreatment = async () => {
+    if (!treatmentToDelete) return;
 
     try {
-      await deleteTreatment(treatment.id);
+      await deleteTreatment(treatmentToDelete.id);
       setSuccessMessage('Tratamiento eliminado exitosamente');
       setTimeout(() => setSuccessMessage(null), 3000);
+      setShowDeleteModal(false);
+      setTreatmentToDelete(null);
     } catch (err) {
       console.error('Error deleting treatment:', err);
+      setShowDeleteModal(false);
+      setTreatmentToDelete(null);
     }
+  };
+
+  const cancelDeleteTreatment = () => {
+    setShowDeleteModal(false);
+    setTreatmentToDelete(null);
   };
 
   const handleSubmitForm = async (formData) => {
@@ -246,7 +261,7 @@ const TreatmentsManager = () => {
         )}
       </div>
 
-      {/* Modal */}
+      {/* Modal de Formulario */}
       {showModal && (
         <TreatmentFormModal
           isOpen={showModal}
@@ -255,6 +270,15 @@ const TreatmentsManager = () => {
           onClose={handleCloseModal}
           onSubmit={handleSubmitForm}
           onUploadImage={uploadImage}
+        />
+      )}
+
+      {/* Modal de Confirmación de Eliminación */}
+      {showDeleteModal && (
+        <ConfirmDeleteTreatment
+          treatment={treatmentToDelete}
+          onConfirm={confirmDeleteTreatment}
+          onCancel={cancelDeleteTreatment}
         />
       )}
     </div>

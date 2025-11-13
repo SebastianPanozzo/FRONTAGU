@@ -23,6 +23,14 @@ const Register = () => {
     return fechaParaInput(today);
   };
 
+  // Validación personalizada para nombre y apellido
+  const validateName = (value) => {
+    if (/\d/.test(value)) {
+      return 'No se permiten números en este campo';
+    }
+    return null;
+  };
+
   const registerFields = [
     {
       name: 'name',
@@ -30,7 +38,8 @@ const Register = () => {
       type: 'text',
       placeholder: 'Juan',
       required: true,
-      helpText: 'Tu nombre de pila'
+      helpText: 'Tu nombre de pila',
+      validate: validateName
     },
     {
       name: 'lastname',
@@ -38,7 +47,8 @@ const Register = () => {
       type: 'text',
       placeholder: 'Pérez',
       required: true,
-      helpText: 'Tu apellido'
+      helpText: 'Tu apellido',
+      validate: validateName
     },
     {
       name: 'email',

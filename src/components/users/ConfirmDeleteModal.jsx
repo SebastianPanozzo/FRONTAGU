@@ -1,6 +1,8 @@
 /**
  * ConfirmDeleteModal.jsx
  * Modal de confirmación para eliminar usuario(s)
+ * 
+ * CORRECCIÓN: Se cambió 'user.mail' por 'user.email' para mostrar correctamente el email
  */
 
 import { formatearNombreCompleto } from '../../utils/formatters';
@@ -68,7 +70,7 @@ const ConfirmDeleteModal = ({ user, onConfirm, onCancel }) => {
                 <ul className="mb-0" style={{ color: 'var(--burgundy)' }}>
                   {user.users.map((u) => (
                     <li key={u.id}>
-                      {formatearNombreCompleto(u)} ({u.mail})
+                      {formatearNombreCompleto(u)} ({u.email})
                     </li>
                   ))}
                 </ul>
@@ -87,7 +89,7 @@ const ConfirmDeleteModal = ({ user, onConfirm, onCancel }) => {
                 }}
               >
                 <p className="mb-2" style={{ color: 'var(--burgundy)' }}>
-                  <strong>Email:</strong> {user.mail}
+                  <strong>Email:</strong> {user.email}
                 </p>
                 <p className="mb-0" style={{ color: 'var(--burgundy)' }}>
                   <strong>Teléfono:</strong> {user.phone || 'No especificado'}
